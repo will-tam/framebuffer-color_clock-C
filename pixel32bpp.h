@@ -1,5 +1,5 @@
-#ifndef _PIXEL_H
-#define _PIXEL_H
+#ifndef _PIXEL32BPP_H
+#define _PIXEL32BPP_H
 
 #include "fbtools.h"
 
@@ -10,7 +10,7 @@
                r, g, b, alpha = RGB-Alpha color.
   Return : void.
 */
-void putpixel(struct framebuffer *fbp, 
+void putpixel32bpp(struct framebuffer *fbp, 
               int x, int y,
               unsigned int r, unsigned int g, unsigned int b, unsigned int alpha);
 

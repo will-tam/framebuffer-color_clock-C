@@ -2,7 +2,7 @@
 #include <linux/fb.h>
 
 #include "fbtools.h"
-#include "pixel.h"
+#include "pixel32bpp.h"
 #include "line.h"
 
 
@@ -28,7 +28,7 @@ void line(struct framebuffer *fbp,
 
   for (;;){
 
-    putpixel(fbp, x0, y0, r, g, b, alpha);
+    putpixel32bpp(fbp, x0, y0, r, g, b, alpha);
 
     if (x0 == x1 && y0 == y1) break;
     e2 = err + err;     /* Better add than mul, for only by 2 - also could use <<1. */

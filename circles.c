@@ -2,7 +2,7 @@
 #include <math.h>
 
 #include "fbtools.h"
-#include "pixel.h"
+#include "pixel32bpp.h"
 #include "circles.h"
 #include "HSV2RGB.h"
 
@@ -25,27 +25,27 @@ void circle(struct framebuffer *fbp,
 		/* Drawing all 8 pixels present in circle by symmetric position. */
     px = xc + x;
     py = yc + y;
-    putpixel(fbp, px, py, r, g, b, alpha);
+    putpixel32bpp(fbp, px, py, r, g, b, alpha);
     py = yc - y;
-    putpixel(fbp, px, py, r, g, b, alpha);
+    putpixel32bpp(fbp, px, py, r, g, b, alpha);
 
     px = xc + y;
     py = yc - x;
-    putpixel(fbp, px, py, r, g, b, alpha);
+    putpixel32bpp(fbp, px, py, r, g, b, alpha);
     py = yc + x;
-    putpixel(fbp, px, py, r, g, b, alpha);
+    putpixel32bpp(fbp, px, py, r, g, b, alpha);
 
     px = xc - x;
     py = yc + y;
-    putpixel(fbp, px, py, r, g, b, alpha);
+    putpixel32bpp(fbp, px, py, r, g, b, alpha);
     py = yc - y;
-    putpixel(fbp, px, py, r, g, b, alpha);
+    putpixel32bpp(fbp, px, py, r, g, b, alpha);
 
     px = xc - y;
     py = yc + x;
-    putpixel(fbp, px, py, r, g, b, alpha);
+    putpixel32bpp(fbp, px, py, r, g, b, alpha);
     py = yc - x;
-    putpixel(fbp, px, py, r, g, b, alpha);
+    putpixel32bpp(fbp, px, py, r, g, b, alpha);
 
 		/* Checking next (x, y) position to draw circle. */
 		if (err >= (x << 1))
@@ -95,49 +95,49 @@ void circlerotationcolor(struct framebuffer *fbp,
 		HSV2RGB(fmod(360 - (a - *offsetFrameColor), 360), 100, 100, &red, &green, &blue);
     px = xc + x;
     py = yc + y;
-    putpixel(fbp, px, py, red, green, blue, alpha);
+    putpixel32bpp(fbp, px, py, red, green, blue, alpha);
 
 		a = (atan2(y, -x) * 180 / PI);
 		HSV2RGB(fmod(360 - (a - *offsetFrameColor), 360), 100, 100, &red, &green, &blue);
     px = xc - x;
     py = yc + y;
-    putpixel(fbp, px, py, red, green, blue, alpha);
+    putpixel32bpp(fbp, px, py, red, green, blue, alpha);
 
 		a = (atan2(-y, x) * 180 / PI) + 360;
 		HSV2RGB(fmod(360 - (a - *offsetFrameColor), 360), 100, 100, &red, &green, &blue);
     px = xc + x;
     py = yc - y;
-    putpixel(fbp, px, py, red, green, blue, alpha);
+    putpixel32bpp(fbp, px, py, red, green, blue, alpha);
 
 		a = (atan2(-y, -x) * 180 / PI) + 360;
 		HSV2RGB(fmod(360 - (a - *offsetFrameColor), 360), 100, 100, &red, &green, &blue);
     px = xc - x;
     py = yc - y;
-    putpixel(fbp, px, py, red, green, blue, alpha);
+    putpixel32bpp(fbp, px, py, red, green, blue, alpha);
 
 		a = (atan2(x, y) * 180 / PI);
 		HSV2RGB(fmod(360 - (a - *offsetFrameColor), 360), 100, 100, &red, &green, &blue);
     px = xc + y;
     py = yc + x;
-    putpixel(fbp, px, py, red, green, blue, alpha);
+    putpixel32bpp(fbp, px, py, red, green, blue, alpha);
 
 		a = (atan2(x, -y) * 180 / PI);
 		HSV2RGB(fmod(360 - (a - *offsetFrameColor), 360), 100, 100, &red, &green, &blue);
     px = xc - y;
     py = yc + x;
-    putpixel(fbp, px, py, red, green, blue, alpha);
+    putpixel32bpp(fbp, px, py, red, green, blue, alpha);
 
 		a = (atan2(-x, y) * 180 / PI) + 360;
 		HSV2RGB(fmod(360 - (a - *offsetFrameColor), 360), 100, 100, &red, &green, &blue);
     px = xc + y;
     py = yc - x;
-    putpixel(fbp, px, py, red, green, blue, alpha);
+    putpixel32bpp(fbp, px, py, red, green, blue, alpha);
 
 		a = fmod((atan2(-x, -y) * 180 / PI) + 360, 360);   // Remove a color glitch at 180°. Value of atan == 540° instead 180°.
 		HSV2RGB(fmod(360 - (a - *offsetFrameColor), 360), 100, 100, &red, &green, &blue);
     px = xc - y;
     py = yc - x;
-    putpixel(fbp, px, py, red, green, blue, alpha);
+    putpixel32bpp(fbp, px, py, red, green, blue, alpha);
 
 		/* Checking next (x, y) position to draw circle. */
 		if (err >= (x << 1))

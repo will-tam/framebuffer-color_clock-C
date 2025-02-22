@@ -6,7 +6,7 @@
 #include "clock.h"
 #include "line.h"
 #include "circles.h"
-#include "pixel.h"
+#include "pixel32bpp.h"
 #include "HSV2RGB.h"
 
 

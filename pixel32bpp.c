@@ -1,9 +1,9 @@
 #include <linux/fb.h>
 
-#include "pixel.h"
+#include "pixel32bpp.h"
 
 
-void putpixel(struct framebuffer *fbp, 
+void putpixel32bpp(struct framebuffer *fbp, 
               int x, int y,
               unsigned int r, unsigned int g, unsigned int b, unsigned int alpha)
 {
@@ -12,8 +12,8 @@ void putpixel(struct framebuffer *fbp,
      (((unsigned int)x < fbp->vinfo.xres) && 
       ((unsigned int)y < fbp->vinfo.yres)))      /* Everybody inside the display. */
   {
-    fbp->pxloffset = (x + fbp->vinfo.xoffset) * (fbp->vinfo.bits_per_pixel >> 3) + 
-                   ((y + fbp->vinfo.yoffset) * fbp->finfo.line_length);
+    /* 1st offset only in 32 bpp */
+    fbp->pxloffset = ((x + fbp->vinfo.xoffset) << 2) + ((y + fbp->vinfo.yoffset) * fbp->finfo.line_length);
 
     *(fbp->dbp + fbp->pxloffset) = b;
     *(fbp->dbp + fbp->pxloffset + 1) = g;

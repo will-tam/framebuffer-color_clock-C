@@ -1,7 +1,7 @@
 /*
 Thanks to --> See README.md ^^
 
-(c) GPL v3 - FREE to use or modify, but don't show this to an IT manager-like, THANKS back all of you.
+(c) MIT License - FREE to use or modify, but don't show this to an IT manager-like, THANKS back all of you.
 */
 
 #include <stdio.h>
@@ -116,7 +116,10 @@ int main()
       /* Flip buffer to framebuffer */
       memcpy(fbp->vramfbp, fbp->dbp, fbp->screensize);
 
-      while (clock() - firsttick < FREQUENCY){ /* Wait until 1/FPS s */}
+      while (clock() - firsttick < FREQUENCY){
+        /* Wait until 1/FPS s */
+        usleep(1000);
+      }
 
     }
     ch = getchar();

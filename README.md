@@ -7,17 +7,18 @@ I confess this test/exercice idea comes from "Le Vortex" [https://www.youtube.co
 
 
 ## The best way to test :
-- Create a Linux virtual machine (VM) with an X server.
-- In console mode:
+- Create a Linux virtual machine (VM) without an X server.
+- In console mode :
   - Check and configure network between VM and your physical machine (PM).
-  - install, configure and run the ssh server.
-  - Log off or not, but the VM still active.
-- Open a terminal on your PM.
-  - Open a ssh connection with the VM.
   - Install and configure the C development kit (gcc + make + lib in debug/dev).
+  - install, configure and run the ssh server.
+  - Log off or not, but the VM has to be still active.
+- Open a terminal on your physical machine (PM).
+  - Open a ssh connection with the VM.
   - Install git.
   - Clone this repository.
   - Go to the newly created directory.
+- Back to VM console :
   - Just type ```make```.
   - If all is ok, the VM console shows you nice arts, while the ssh terminal shows some information.
 

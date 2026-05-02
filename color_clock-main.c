@@ -117,7 +117,7 @@ int main()
       memcpy(fbp->vramfbp, fbp->dbp, fbp->screensize);
 
       while (clock() - firsttick < FREQUENCY){ /* Wait until 1/FPS s */}
-
+      usleep(1000);
     }
     ch = getchar();
     if (ch == 27) { break; }    /* ESC => go out. */

@@ -1,3 +1,5 @@
 *.pdf
 *.o
 tmp/*
+.codelite/
+color_clock.workspace
